@@ -28,6 +28,6 @@
 // import { testSpreadOpObj } from "./spreadOpObj.js";
 // testSpreadOpObj();
 
-import { testSpreadSummation, testSpreadMultiplication } from "./spreadSummation.js";
-testSpreadSummation();
-testSpreadMultiplication();
+// import { testSpreadSummation, testSpreadMultiplication } from "./spreadSummation.js";
+// testSpreadSummation();
+// testSpreadMultiplication();
