@@ -39,7 +39,7 @@ async function fetchNotifications(userId) {
     })
 }
 
-async function ProcessData(userId) {
+export async function ProcessData(userId) {
     try {
         const [usersData, postsData, notificationsData] = await Promise.all([
             fetchUser(userId),
@@ -53,5 +53,3 @@ async function ProcessData(userId) {
         console.error("Error:", error.message);
     }
 }
-
-await ProcessData(2);

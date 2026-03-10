@@ -43,7 +43,7 @@ async function calculateTotal(userId) {
     })
 }
 
-async function ProcessUser(userId) {
+export async function ProcessUser(userId) {
     try {
         const user = await fetchUser(userId);
         const order = await fetchOrder(userId);

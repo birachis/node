@@ -31,3 +31,9 @@
 // import { testSpreadSummation, testSpreadMultiplication } from "./spreadSummation.js";
 // testSpreadSummation();
 // testSpreadMultiplication();
+
+import {ProcessUser} from './async/userOrderAsync.js';
+await ProcessUser(1);
+
+import {ProcessData} from './async/promiseAll.js';
+await ProcessData(2);
