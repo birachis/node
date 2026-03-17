@@ -1,19 +1,26 @@
-import { createBookData, getbookDataById, getBooksData, updateBookData, deleteBookData } from "../repositories/book.repository.js";
+import { createBookData, getbookDataById, getBooksData, updateBookData, deleteBookData, getTotalBooksCount } from "../repositories/book.repository.js";
 
-export const getBooks = () => {
-
-    const  books  = getBooksData();
+export const getBooks = (page: number = 1, limit: number = 10) => {
+    const offset = (page - 1) * limit;
+    const books = getBooksData(offset, limit);
+    const totalBooks = getTotalBooksCount();
+    const totalPages = Math.ceil(totalBooks / limit);
 
     const response = {
         status: "success",
         message: "List of books",
         data: books,
+        pagination: {
+            total: totalBooks,
+            page: Number(page),
+            limit: Number(limit),
+            totalPages: totalPages
+        },
         statusCode: 200,
         error: null
     };
 
-
-  return response;
+    return response;
 };
 
 export const getBookById = (id: any) => {

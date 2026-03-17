@@ -40,11 +40,35 @@ const books: Book[] = [
       isDeleted: false, 
       deletedAt: null 
     },
+    { 
+      id: 4, 
+      name: "Book 4", 
+      isInStore: true,
+      amountInStore: 10,
+      createdAt: new Date(), 
+      updatedAt: new Date(), 
+      isDeleted: false, 
+      deletedAt: null 
+    },
+    { 
+      id: 5, 
+      name: "Book 5", 
+      isInStore: true,
+      amountInStore: 10,
+      createdAt: new Date(), 
+      updatedAt: new Date(), 
+      isDeleted: false, 
+      deletedAt: null 
+    },
 ];
 
-export const getBooksData = () => {
-  const booksList = books.filter((b) => !b.isDeleted);  
-  return  booksList;
+export const getBooksData = (offset: number = 0, limit: number = 10) => {
+  const booksList = books.filter((b) => !b.isDeleted);
+  return booksList.slice(offset, offset + limit);
+};
+
+export const getTotalBooksCount = () => {
+  return books.filter((b) => !b.isDeleted).length;
 };
 
 export const getbookDataById = (id: any ) => {
