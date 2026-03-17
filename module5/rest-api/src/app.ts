@@ -2,7 +2,7 @@ import express from "express";
 import bookRoutes from "./routes/book.routes.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 // Middleware to parse JSON
 app.use(express.json());
