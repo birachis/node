@@ -1,0 +1,6 @@
+require('dotenv').config();
+
+export const SENTRY_DSN = {
+
+    SENTRY_DSN: process.env.SENTRY_DSN,
+}
