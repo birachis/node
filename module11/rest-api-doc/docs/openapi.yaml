@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Books API (YAML)
+  version: 1.0.0
+  description: Centralized OpenAPI specification in YAML.
+
+servers:
+  - url: http://localhost:5000
+
+paths:
+  /book:
+    get:
+      summary: Get all books
+      description: Returns a list of all items
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              example:
+                - id: "A1"
+                  name: "Apple"
+                  isInStore: true
+                  amountInStore: 50
+                - id: "B2"
+                  name: "Banana"
+                  isInStore: false
+                  amountInStore: 0
+
+    post:
+      summary: Create a new book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              name: "Orange"
+              isInStore: true
+              amountInStore: 40
+      responses:
+        "201":
+          description: book created
+          content:
+            application/json:
+              example:
+                id: "C3"
+                name: "Orange"
+                isInStore: true
+                amountInStore: 40
+  /book/{id}:
+    get:
+      summary: Get a book by ID
+      description: Returns a single book based on its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              example:
+                - id: "A1"
+                  name: "Apple"
+                  isInStore: true
+                  amountInStore: 50
+                - id: "B2"
+                  name: "Banana"
+                  isInStore: false
+                  amountInStore: 0
+
+    put:
+      summary: Update a book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              name: "Orange"
+              isInStore: true
+              amountInStore: 40
+      responses:
+        "201":
+          description: book edited
+          content:
+            application/json:
+              example:
+                id: "C3"
+                name: "Orange"
+                isInStore: true
+                amountInStore: 40
+    delete:
+      summary: Delete a book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              name: "Orange"
+              isInStore: true
+              amountInStore: 40
+      responses:
+        "201":
+          description: book deleted
+          content:
+            application/json:
+              example:
+                id: "C3"
+                name: "Orange"
+                isInStore: true
+                amountInStore: 40
+
